@@ -1072,6 +1072,11 @@ json5@^1.0.1:
     array-includes "^3.1.4"
     object.assign "^4.1.2"
 
+kitsu-core@^10.0.0-alpha.23:
+  version "10.0.0-alpha.23"
+  resolved "https://registry.yarnpkg.com/kitsu-core/-/kitsu-core-10.0.0-alpha.23.tgz#9da57511b62bd8a2206e36c851e1abadee810abc"
+  integrity sha512-J14PGNFkLv7FSmByE7CIcl8pkRuPFlIEMg6fBioj31Q7aefczAA/7i5vOmENMvQwbK6H+Ruwpild684UwgWHFg==
+
 language-subtag-registry@~0.3.2:
   version "0.3.21"
   resolved "https://registry.yarnpkg.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"
