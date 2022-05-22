@@ -9,9 +9,10 @@ export async function getStaticPaths() {
   const res = await resp.json();
 
   return {
-    paths: res.map((recipe) => ({
+    paths: res.data.map((recipe) => ({
       params: { id: recipe.id.toString() },
     })),
+    fallback: false,
   };
 }
 
