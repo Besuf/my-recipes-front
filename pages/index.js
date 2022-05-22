@@ -4,7 +4,7 @@ import styles from "../styles/Home.module.css";
 
 import Link from "next/link";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const resp = await fetch(
     `https://fast-meadow-80552.herokuapp.com/api/desserts?populate=*`
   );

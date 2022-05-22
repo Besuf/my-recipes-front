@@ -2,7 +2,20 @@ import Link from "next/link";
 import React from "react";
 import styles from "../../styles/Home.module.css";
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  const resp = await fetch(
+    `https://fast-meadow-80552.herokuapp.com/api/desserts?populate=*`
+  );
+  const res = await resp.json();
+
+  return {
+    paths: res.map((recipe) => ({
+      params: { id: recipe.id.toString() },
+    })),
+  };
+}
+
+export async function getStaticProps({ params }) {
   const resp = await fetch(
     `https://fast-meadow-80552.herokuapp.com/api/desserts/${params.id}?populate=*`
   );
