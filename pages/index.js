@@ -1,22 +1,24 @@
 import Head from "next/head";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "../styles/Home.module.css";
 
 import Link from "next/link";
-export default function Home() {
-  const [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {
-    async function getRecipes() {
-      const resp = await fetch(
-        "https://fast-meadow-80552.herokuapp.com/api/desserts?populate=*"
-      );
-      const res = await resp.json();
-      const data = res.data;
-      setRecipes(data);
-    }
-    getRecipes();
-  }, []);
+export async function getServerSideProps() {
+  const resp = await fetch(
+    `https://fast-meadow-80552.herokuapp.com/api/desserts?populate=*`
+  );
+  const res = await resp.json();
+
+  return {
+    props: {
+      recipes: res.data,
+    },
+  };
+}
+
+export default function Home(props) {
+  const { recipes } = props;
 
   return (
     <div className={styles.container}>
